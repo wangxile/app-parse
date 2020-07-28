@@ -1,0 +1,1 @@
+linux环境下，需要将jython-standalone.jar解压出来，放在项目的同级目录下

@@ -76,12 +76,6 @@ public class AppInfo {
     private Integer platformType;
 
     /**
-     * 根据url下载的文件
-     */
-    private File downLoadFile;
-
-
-    /**
      * 安卓特性
      */
     private String installLocation;
@@ -184,14 +178,6 @@ public class AppInfo {
 
     public void setPlatformType(Integer platformType) {
         this.platformType = platformType;
-    }
-
-    public File getDownLoadFile() {
-        return downLoadFile;
-    }
-
-    public void setDownLoadFile(File downLoadFile) {
-        this.downLoadFile = downLoadFile;
     }
 
     public String getMinSdkVersion() {

@@ -13,6 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 /**
@@ -41,11 +42,14 @@ public class ParseAppUtils {
         String imgPath = localDir + uuid + ".png";
         try {
             AppInfo appInfo = parse(file, imgPath, isGetIcon);
-            appInfo.setDownLoadFile(file);
             return appInfo;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }finally {
+            if (file.exists()) {
+                file.delete();
+            }
         }
     }
 
@@ -74,6 +78,8 @@ public class ParseAppUtils {
         if (fileName.endsWith(".apk")) {
             //解析apk
             try (ApkFile apkFile = new ApkFile(targetFile)) {
+                //设置语言,防止解析名称错误
+                apkFile.setPreferredLocale(Locale.CHINA);
                 ApkMeta apkMeta = apkFile.getApkMeta();
                 appInfo = AppInfoUtils.infoFromAPKMeta(apkMeta, getAppIconData(apkFile));
                 appInfo.setPlatformType(0);

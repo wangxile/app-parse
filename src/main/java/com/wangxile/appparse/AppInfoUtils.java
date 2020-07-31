@@ -17,7 +17,7 @@ import java.util.Properties;
  */
 public class AppInfoUtils {
 
-    public static AppInfo infoFromAPKMeta(ApkMeta meta, byte[] iconData) {
+    public static AppInfo infoFromAPKMeta(ApkMeta meta) {
         if (Objects.isNull(meta)) {
             return null;
         }
@@ -29,7 +29,6 @@ public class AppInfoUtils {
         info.setLabel(meta.getLabel());
         info.setFileSize(0);
         info.setMinSdkVersion(meta.getMinSdkVersion());
-        info.setIconData(iconData);
         info.setMinSdkString(minLevelString(0, info.getMinSdkVersion()));
 
         return info;

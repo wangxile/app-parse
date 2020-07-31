@@ -81,7 +81,7 @@ public class ParseAppUtils {
                 //设置语言,防止解析名称错误
                 apkFile.setPreferredLocale(Locale.CHINA);
                 ApkMeta apkMeta = apkFile.getApkMeta();
-                appInfo = AppInfoUtils.infoFromAPKMeta(apkMeta, getAppIconData(apkFile));
+                appInfo = AppInfoUtils.infoFromAPKMeta(apkMeta);
                 appInfo.setPlatformType(0);
 
                 //判断是否解析图标
